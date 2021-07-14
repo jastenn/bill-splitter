@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+// eslint-disable-next-line
+import * as Styled from './App.styled';
+
+import ThemeProvider from './provider/ThemeProvider';
+import InputDataProvider from './provider/InputDataProvider';
+import Form from './components/Form/Form';
+import Result from './components/Result/Result'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<ThemeProvider>
+			<InputDataProvider>
+				<Styled.App>
+						<Styled.Logo />
+					<Styled.AppContainer>
+						<Form />
+						<Result />	
+					</Styled.AppContainer>
+				</Styled.App>
+			</InputDataProvider>
+		</ThemeProvider>
+	);
 }
 
 export default App;
