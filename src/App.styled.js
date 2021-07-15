@@ -6,6 +6,9 @@ export const App = styled.div`
 	min-height: 100vh;
 	padding-top: 2.88rem;
 	color: ${({ theme }) => theme.neutralDarkGray400};
+	@media (min-width: 700px) {
+		padding-top: 7vh;
+	}
 `;
 
 export const AppContainer = styled.div`
