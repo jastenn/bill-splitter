@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Styled from './InputText.style.js';
 const InputText = ({name, value, updateStateHandler, isValid, isDirty }) => {
-	const numRegex = /^[0-9]*$/;
+	const numRegex = /^[0-9]*\.?([0-9]*)?/;
 	
 	const inputHandler = (e) => {
 		const el = e.target;
