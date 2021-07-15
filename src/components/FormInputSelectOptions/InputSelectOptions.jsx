@@ -62,6 +62,7 @@ const InputSelectOption = () => {
 						name="tip"
 						id={curOption.id}
 						value={curOption.value}
+						checked={(curOption.value === parseInt(inputState.tip.value)) ? 1 : 0}
 						onChange={
 							curOption.value === inputState.tip.value ? '' : radioChangeHandler
 						}

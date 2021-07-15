@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import * as Styled from './ButtonPrimary.style'
+import { InputData } from '../../provider/InputDataProvider'
 
-const ButtonPrimary = () => {
-  const disabled = true
-  const clickHandler = () => console.log(1)
+const ButtonPrimary = ({isBtnDisabled}) => {
+  const {dispatchInput} = useContext(InputData)
+  const disabled = isBtnDisabled
+  const clickHandler = () => {
+    dispatchInput({type: 'reset'})
+  }
   return (
     <Styled.Button primary onClick={clickHandler} disabled={disabled ? 1 : 0}>
       Reset

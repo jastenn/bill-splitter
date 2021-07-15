@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useReducer } from 'react';
+import React, { createContext, useReducer } from 'react';
 
 export const InputData = createContext();
 
@@ -11,9 +11,7 @@ const initialInputState = {
 	},
 	tip: {
 		name: 'tip',
-		value: '',
-		isDirty: false,
-		isValid: false,
+		value: '0',
 	},
 	people: {
 		name: 'people',
@@ -54,25 +52,7 @@ const billReducer = (state, action) => {
 			return {
 				...state,
 				tip: {
-					...state.tip,
 					value: action.value,
-					isDirty: true,
-				},
-			};
-		case 'invalid:tip':
-			return {
-				...state,
-				tip: {
-					...state.tip,
-					isValid: false,
-				},
-			};
-		case 'valid:tip':
-			return {
-				...state,
-				tip: {
-					...state.tip,
-					isValid: true,
 				},
 			};
 		case 'update:people':
@@ -100,6 +80,8 @@ const billReducer = (state, action) => {
 					isValid: true,
 				},
 			};
+		case 'reset':
+			return initialInputState;
 		default:
 			console.warn('Invalid Action Type');
 			break;
@@ -111,17 +93,7 @@ const InputDataProvider = (props) => {
 		billReducer,
 		initialInputState
 	);
-
-	useEffect(() => {
-		const { bill, tip, people } = inputState;
-
-		if (bill.isDirty && tip.isDirty && people.isDirty) {
-			const computedTip = (parseInt(bill.value) / 100) * parseInt(tip.value);
-			if (Number.isNaN(computedTip)) {
-			}
-		}
-	}, [inputState]);
-
+	
 	return (
 		<InputData.Provider value={{ inputState, dispatchInput }}>
 			{props.children}
