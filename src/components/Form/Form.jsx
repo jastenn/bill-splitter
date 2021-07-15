@@ -9,24 +9,18 @@ const Form = () => {
 	const { inputState, dispatchInput } = useContext(InputData);
 	const updateStateHandler = (el) => {
 		dispatchInput({ type: `update:${el.name}`, value: el.value });
+		if(!(el.value === '0') && !(el.value === '')) {
+			console.log(el.value)
+			dispatchInput({type: `valid:${el.name}`})
+		} else {
+			dispatchInput({type: `invalid:${el.name}`})
+		}
 	};
 	return (
 		<Styled.Form>
-			<InputText
-				placeholder="0"
-				name={inputState.bill.name}
-				id={inputState.bill.name}
-				value={inputState.bill.value}
-				updateStateHandler={updateStateHandler}
-			/>
+			<InputText updateStateHandler={updateStateHandler} {...inputState.bill} />
 			<InputSelect />
-			<InputText
-				placeholder="0"
-				name={inputState.people.name}
-				id={inputState.people.name}
-				value={inputState.people.value}
-				updateStateHandler={updateStateHandler}
-			/>
+			<InputText updateStateHandler={updateStateHandler} {...inputState.people} />
 		</Styled.Form>
 	);
 };

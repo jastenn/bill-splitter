@@ -12,9 +12,9 @@ export const Button = styled.button`
   border: none;
   border-radius: .5rem;
   ${(props) => props.primary ? 'text-transform: uppercase;' : ''}
-  ${(props) => props.disabled === 'true' ? 'opacity: .3;' : 'cursor: pointer;'}
+  ${(props) => props.disabled? 'opacity: .3;' : 'cursor: pointer;'}
   //can't detect if props is disabled might fix later
-  &:active:hover {
-    background-color: ${({theme}) => theme.neutralLightCyanHover};
+  &:hover {
+      ${({disabled, theme}) => disabled? '' : `background-color: ${theme.neutralLightCyanHover};`}
   }
 `

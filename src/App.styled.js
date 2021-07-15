@@ -15,6 +15,16 @@ export const AppContainer = styled.div`
 	margin: 0 auto;
 	padding: 2rem;
 	border-radius: 0.875em;
+
+	@media (min-width: 460px) and (max-width: 700px) {
+		width: 25rem;
+	}
+	@media (min-width: 700px) {
+		display: flex;
+		justify-content: space-between;
+		padding: 3rem;
+		align-items: center;
+	}
 `;
 
 export const Logo = styled(LogoSvg)`

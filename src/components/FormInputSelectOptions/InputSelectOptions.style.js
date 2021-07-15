@@ -6,6 +6,11 @@ export const SelectContainer = styled.div`
 	grid-template-columns: repeat(2, 1fr);
 	grid-template-rows: repeat(3, 1fr);
 	grid-gap: 1.13rem;
+	@media (min-width: 840px) {
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		grid-gap: 0.88rem;
+	}
 `;
 
 export const SelectOptionContainer = styled.div`
@@ -22,7 +27,7 @@ export const SelectOption = styled.input`
 		opacity: 0.8;
 	}
 	&:checked:focus + label {
-		opacity: .8;
+		opacity: 0.8;
 	}
 	&:checked + label {
 		opacity: 1;
@@ -44,7 +49,7 @@ export const SelectLabel = styled.label`
 	cursor: pointer;
 	transition: 100ms ease background-color, 100ms ease color;
 	&:hover {
-		background-color: ${({theme}) => theme.neutralLightCyanHover};
+		background-color: ${({ theme }) => theme.neutralLightCyanHover};
 		color: ${({ theme }) => theme.neutralVeryDarkCyan};
 	}
 	& span {
@@ -54,6 +59,11 @@ export const SelectLabel = styled.label`
 `;
 
 export const CustomTipInput = styled(FormInput)`
+	box-shadow: none !important;
+	@media (min-width: 700px) {
+		text-align: center;
+		padding: 0 0.5rem;
+	}
 	&::placeholder {
 		opacity: 0.6;
 		color: ${({ theme }) => theme.neutralVeryDarkCyan};

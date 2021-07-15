@@ -6,11 +6,15 @@ export const ResultControl = styled.div`
 	align-items: center;
 
 	& + * {
-		margin-top: 1.25rem;
+		padding-top: 1.75rem;
 	}
 `;
 
-export const LabelContainer = styled.div``;
+export const LabelContainer = styled.div`
+	& + div {
+		margin-top: 10rem;
+	}
+`;
 
 export const Label = styled.h3`
 	text-transform: capitalize;

@@ -32,17 +32,27 @@ const radioOptionData = [
 
 const InputSelectOption = () => {
 	// eslint-disable-next-line
+	const numRegex = /^[0-9]*$/
 	const [customTip, setCustomTip] = useState('')
 	const { inputState, dispatchInput } = useContext(InputData);
+
 	const radioChangeHandler = (e) => {
 		const el = e.target;
+
 		dispatchInput({ type: `update:${el.name}`, value: el.value });
 	};
+
 	const customTipHandler = (e) => {
 		const el = e.target
-		setCustomTip(el.value)
-		dispatchInput({ type: `update:${el.name}`, value: el.value})
+		if(numRegex.test(el.value)) {
+			console.log('valid input')
+			setCustomTip(el.value)
+			dispatchInput({ type: `update:${el.name}`, value: el.value})
+		} else {
+			console.log('invalid input')
+		}
 	}
+
 	return (
 		<Styled.SelectContainer>
 			{radioOptionData.map((curOption, index) => (

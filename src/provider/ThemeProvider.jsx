@@ -10,6 +10,7 @@ const ThemeProvider = (props) => {
 		neutralLightGray400: "hsl(185, 41%, 84%)",
 		neutralLightGray300: "hsl(189, 41%, 97%)",
 		neutralLightCyanHover: "#9fe8df",	
+		red: '#B47C6D',
 		white: "hsl(0, 0%, 100%)",
 	};
 
